@@ -1,0 +1,25 @@
+<!-- templates/todo.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/todo.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Add To-Do Item</h1>
+        <form id="todoForm">
+            <label for="itemName">Item Name:</label>
+            <input type="text" id="itemName" name="itemName" required>
+
+            <label for="itemDescription">Description:</label>
+            <textarea id="itemDescription" name="itemDescription" rows="3" required></textarea>
+
+            <button type="submit">✅ Submit</button>
+        </form>
+        <div id="response"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/todo.js') }}"></script>
+</body>
+</html>
