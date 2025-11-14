@@ -15,10 +15,20 @@
 
             <label for="itemDescription">Description:</label>
             <textarea id="itemDescription" name="itemDescription" rows="3" required></textarea>
-
+<input type="number" id="itemId" name="itemId" placeholder="Item ID (e.g., 101)" required>
             <button type="submit">✅ Submit</button>
+            <input type="text" id="itemUuid" name="itemUuid" 
+       placeholder="Item UUID (auto-filled)" readonly>
+<script>
+  // Auto-generate UUID v4 on page load
+  document.getElementById('itemUuid').value = 
+    ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
+</script>
         </form>
         <div id="response"></div>
+
     </div>
     <script src="{{ url_for('static', filename='js/todo.js') }}"></script>
 </body>
